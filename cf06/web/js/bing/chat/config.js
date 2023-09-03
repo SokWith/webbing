@@ -33,7 +33,7 @@ _w['_sydConvConfig'] = {
   sydBaseUrl: location.origin,
   compSydBaseUrl: '',
   isCompliantSydneyEndpointEnabled: false,
-  isBingChatForEnterprise: false,
+  isBingChatForEnterprise: true,
   isBingChatForSchools: false,
   isBingChatForFaculty: false,
   enableUserFeedbackDefaultConsent: false,
