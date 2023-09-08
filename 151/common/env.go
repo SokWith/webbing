@@ -3,6 +3,8 @@ package common
 import (
 	"os"
 	"strings"
+	"math/rand"
+	"time"
 )
 
 var (
@@ -25,6 +27,18 @@ func init() {
 	initUserToken()
 }
 
+func generateRandomString(length int) string {
+	charset := "ABCDEF1234567890"
+	rand.Seed(time.Now().UnixNano())
+
+	result := make([]byte, length)
+	for i := 0; i < length; i++ {
+		result[i] = charset[rand.Intn(len(charset))]
+	}
+
+	return string(result)
+}
+
 func initEnv() {
 	// is debug
 	IS_DEBUG_MODE = os.Getenv("Go_Proxy_BingAI_Debug") != ""
@@ -34,6 +48,11 @@ func initEnv() {
 	USER_KievRPSSecAuth = os.Getenv("USER_KievRPSSecAuth")
 	// MUID Cookie
 	USER_MUID = os.Getenv("USER_MUID")
+	if USER_MUID == "" {
+		IPSTR := "074AD7F106536BC6392FC4C907CA6A" // Replace with your desired IPV6 address
+		randomString := generateRandomString(2)
+		USER_MUID = IPSTR + randomString
+	}
 	// _RwBf Cookie
 	USER_RwBf = os.Getenv("USER_RwBf")
 }
