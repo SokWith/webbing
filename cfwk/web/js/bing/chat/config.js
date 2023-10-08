@@ -886,7 +886,7 @@ _w['_sydConvTranslation'] = {
   useGPT4SwitchLabel: '使用 GPT-4',
   zeroInputSuggestionFallback1: '哪款咖啡研磨机评价最好？',
   zeroInputSuggestionFallback2: '对于一个预算有限的六口之家来说，会首选哪三款车型？',
-  zeroInputSuggestionFallback3: 'https://nbing.eu.org New Bing测试域',
+  zeroInputSuggestionFallback3: '总结https://nbing.eu.org网站内容并画出网站拓扑',
   zeroInputSuggestionFallback4: '下一流行趋势是什么？我应该在哪里购物可以找到它？',
   zeroInputSuggestionFallback5: '撰写关于鱼和青蛙寻找爱的原创寓言故事',
   zeroInputSuggestionFallback6: '创建一个表，帮助我计划接下来两周的就餐',
