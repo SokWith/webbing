@@ -6,6 +6,7 @@ on:
   schedule:
     # Runs at the first minute of every hour
     - cron: '1 * * * *'
+  workflow_dispatch:
 
 jobs:
   visit:
