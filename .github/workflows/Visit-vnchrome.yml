@@ -14,5 +14,5 @@ jobs:
     steps:
       # Use curl command to visit the website
       - name: Visit website
-        run: curl https://sokwith-vnchrome.hf.space/vnc.html
-        run: curl https://sokwith-nbing.hf.space
+        run: curl https://sokwith-vnchrome.hf.space/vnc.html; curl https://sokwith-nbing.hf.space
+
