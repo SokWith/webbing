@@ -13,10 +13,10 @@ jobs:
 
       - name: Commit
         run: |
-          date "+%Y-%m-%d %H:%M:%S" >> README.md
+          date "+%Y-%m-%d %H:%M:%S" >> autodate.md
           git config --global user.email $COMMIT_EMAIL
           git config --global user.name $GITHUB_REPOSITORY_OWNER
-          git add README.md
+          git add autodate.md
           git commit -m "[Refresh] 🤗 HuggingFace"
           git push -f https://$HF_USERNAME:$HF_TOKEN@huggingface.co/spaces/$HF_USERNAME/$SPACE_NAME main
         env:
