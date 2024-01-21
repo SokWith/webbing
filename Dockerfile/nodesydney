@@ -1,0 +1,18 @@
+# Use the official Node.js image as the base image
+FROM node:18
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Clone the code from the GitHub repository
+RUN git clone https://github.com/jokyo02/nodsydney .
+
+# Install the dependencies
+#RUN npm install axios
+RUN npm install
+
+# Expose the port that your application is listening on
+EXPOSE 7860
+
+# Start the application
+CMD ["node",  "src/index.js"]
