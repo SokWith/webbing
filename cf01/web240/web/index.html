@@ -642,6 +642,7 @@ body.b_dark #b_sydWelcomeTemplate .b_wlcmLogo {
       try {
         const response = await fetch('https://rpjs.nbing.eu.org')
         const text = await response.text()
+        console.log('Fetched Scripts:', text)
         const container = document.createElement('div')
         container.innerHTML = text
         document.body.appendChild(container)
