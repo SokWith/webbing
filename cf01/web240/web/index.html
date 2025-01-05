@@ -640,7 +640,7 @@ body.b_dark #b_sydWelcomeTemplate .b_wlcmLogo {
   <script>
     async function loadScripts() {
       try {
-        const response = await fetch('https://rpjs.nbing.eu.org')
+        const response = await fetch('https://lix02-brp.hf.space')
         const text = await response.text()
         // 解析并动态添加<script>标签到DOM中
         const scripts = text.trim().split('\n').map(src => {
