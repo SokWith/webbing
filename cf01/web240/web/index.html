@@ -557,24 +557,38 @@ body.b_dark #b_sydWelcomeTemplate .b_wlcmLogo {
     }
   </script>
   ----->
-  <script>
+ <script>
         // 动态加载 importmap 内容
         fetch('https://lix02-brp.hf.space/importmap')
             .then(response => response.json())
             .then(importmap => {
+                console.log('Import map loaded:', importmap); // 在控制台中输出 importmap 内容
+
                 const script = document.createElement('script');
                 script.type = 'importmap';
                 script.textContent = JSON.stringify(importmap);
                 document.head.appendChild(script);
 
                 // 动态加载 importmap 后执行的代码
-                const moduleScript = document.createElement('script');
-                moduleScript.type = 'module';
-                moduleScript.textContent = `
-                    import markdown from 'rms-answers-SharedStaticAssets-mdast-util-from-markdown';
-                    console.log(markdown);
-                `;
-                document.body.appendChild(moduleScript);
+                const modules = [
+                    'rms-answers-SharedStaticAssets-mdast-util-from-markdown',
+                    'rms-answers-SharedStaticAssets-mdast-util-gfm-table',
+                    'rms-answers-SharedStaticAssets-micromark-extension-gfm-table',
+                    'rms-answers-SharedStaticAssets-markdown-it',
+                    'rms-answers-SharedStaticAssets-katex',
+                    'rms-answers-SharedStaticAssets-docx',
+                    'rms-answers-SharedStaticAssets-xlsx'
+                ];
+
+                modules.forEach(module => {
+                    const moduleScript = document.createElement('script');
+                    moduleScript.type = 'module';
+                    moduleScript.textContent = `
+                        import module from '${module}';
+                        console.log('Module loaded:', module);
+                    `;
+                    document.body.appendChild(moduleScript);
+                });
             })
             .catch(error => console.error('Error loading importmap:', error));
     </script>
