@@ -558,40 +558,39 @@ body.b_dark #b_sydWelcomeTemplate .b_wlcmLogo {
   </script>
   ----->
  <script>
-        // 动态加载 importmap 内容
-        fetch('https://lix02-brp.hf.space/importmap')
-            .then(response => response.json())
-            .then(importmap => {
-                console.log('Import map loaded:', importmap); // 在控制台中输出 importmap 内容
+    // 动态加载 importmap 内容
+    fetch('https://lix02-brp.hf.space/importmap')
+        .then(response => response.json())
+        .then(importmap => {
+            console.log('Import map loaded:', importmap); // 在控制台中输出 importmap 内容
 
-                const script = document.createElement('script');
-                script.type = 'importmap';
-                script.textContent = JSON.stringify(importmap);
-                document.head.appendChild(script);
+            const script = document.createElement('script');
+            script.type = 'importmap';
+            script.textContent = JSON.stringify(importmap);
+            document.head.appendChild(script);
 
-                // 动态加载 importmap 后执行的代码
-                const modules = [
-                    'rms-answers-SharedStaticAssets-mdast-util-from-markdown',
-                    'rms-answers-SharedStaticAssets-mdast-util-gfm-table',
-                    'rms-answers-SharedStaticAssets-micromark-extension-gfm-table',
-                    'rms-answers-SharedStaticAssets-markdown-it',
-                    'rms-answers-SharedStaticAssets-katex',
-                    'rms-answers-SharedStaticAssets-docx',
-                    'rms-answers-SharedStaticAssets-xlsx'
-                ];
+            // 动态加载 importmap 后执行的代码
+            const modules = [
+                'rms-answers-SharedStaticAssets-mdast-util-from-markdown',
+                'rms-answers-SharedStaticAssets-mdast-util-gfm-table',
+                'rms-answers-SharedStaticAssets-micromark-extension-gfm-table',
+                'rms-answers-SharedStaticAssets-markdown-it',
+                'rms-answers-SharedStaticAssets-katex',
+                'rms-answers-SharedStaticAssets-docx',
+                'rms-answers-SharedStaticAssets-xlsx'
+            ];
 
-                modules.forEach(module => {
-                    const moduleScript = document.createElement('script');
-                    moduleScript.type = 'module';
-                    moduleScript.textContent = `
-                        import module from '${module}';
+            modules.forEach(module => {
+                import(importmap.imports[module])
+                    .then(module => {
                         console.log('Module loaded:', module);
-                    `;
-                    document.body.appendChild(moduleScript);
-                });
-            })
-            .catch(error => console.error('Error loading importmap:', error));
-    </script>
+                    })
+                    .catch(error => console.error('Error loading module:', error));
+            });
+        })
+        .catch(error => console.error('Error loading importmap:', error));
+</script>
+
 
   
   <script type="module" crossorigin src="/web/assets/index-e269ea96.js"></script>
