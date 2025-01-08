@@ -557,7 +557,27 @@ body.b_dark #b_sydWelcomeTemplate .b_wlcmLogo {
     }
   </script>
   ----->
-   <script src="https://lix02-brp.hf.space/importmap" > </script>
+  <script>
+        // 动态加载 importmap 内容
+        fetch('https://lix02-brp.hf.space/importmap')
+            .then(response => response.json())
+            .then(importmap => {
+                const script = document.createElement('script');
+                script.type = 'importmap';
+                script.textContent = JSON.stringify(importmap);
+                document.head.appendChild(script);
+
+                // 动态加载 importmap 后执行的代码
+                const moduleScript = document.createElement('script');
+                moduleScript.type = 'module';
+                moduleScript.textContent = `
+                    import markdown from 'rms-answers-SharedStaticAssets-mdast-util-from-markdown';
+                    console.log(markdown);
+                `;
+                document.body.appendChild(moduleScript);
+            })
+            .catch(error => console.error('Error loading importmap:', error));
+    </script>
 
   
   <script type="module" crossorigin src="/web/assets/index-e269ea96.js"></script>
