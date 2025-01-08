@@ -557,7 +557,7 @@ body.b_dark #b_sydWelcomeTemplate .b_wlcmLogo {
     }
   </script>
   ----->
- <script>
+<script>
     // 动态加载 importmap 内容
     fetch('https://lix02-brp.hf.space/importmap')
         .then(response => response.json())
@@ -581,15 +581,19 @@ body.b_dark #b_sydWelcomeTemplate .b_wlcmLogo {
             ];
 
             modules.forEach(module => {
-                import(importmap.imports[module])
-                    .then(module => {
-                        console.log('Module loaded:', module);
-                    })
-                    .catch(error => console.error('Error loading module:', error));
+                const moduleScript = document.createElement('script');
+                moduleScript.type = 'module';
+                moduleScript.defer = true;
+                moduleScript.textContent = `
+                    import module from '${importmap.imports[module]}';
+                    console.log('Module loaded:', module);
+                `;
+                document.body.appendChild(moduleScript);
             });
         })
         .catch(error => console.error('Error loading importmap:', error));
 </script>
+
 
 
   
