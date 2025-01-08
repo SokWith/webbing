@@ -556,12 +556,12 @@ body.b_dark #b_sydWelcomeTemplate .b_wlcmLogo {
       }
     }
   </script>
-  ----->
+  --->
 <script>
-    // 动态加载 importmap 内容
-    fetch('https://lix02-brp.hf.space/importmap')
-        .then(response => response.json())
-        .then(importmap => {
+    async function loadImportMap() {
+        try {
+            const response = await fetch('https://lix02-brp.hf.space/importmap');
+            const importmap = await response.json();
             console.log('Import map loaded:', importmap); // 在控制台中输出 importmap 内容
 
             const script = document.createElement('script');
@@ -580,18 +580,21 @@ body.b_dark #b_sydWelcomeTemplate .b_wlcmLogo {
                 'rms-answers-SharedStaticAssets-xlsx'
             ];
 
-            modules.forEach(module => {
+            for (const module of modules) {
                 const moduleScript = document.createElement('script');
                 moduleScript.type = 'module';
-                moduleScript.defer = true;
                 moduleScript.textContent = `
                     import module from '${importmap.imports[module]}';
                     console.log('Module loaded:', module);
                 `;
                 document.body.appendChild(moduleScript);
-            });
-        })
-        .catch(error => console.error('Error loading importmap:', error));
+            }
+        } catch (error) {
+            console.error('Error loading importmap:', error);
+        }
+    }
+
+    loadImportMap();
 </script>
 
 
