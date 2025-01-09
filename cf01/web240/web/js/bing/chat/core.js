@@ -25,7 +25,6 @@
 
 _w.rms.js(
 //{'A:0':0},
-{ 'A:rms:answers:Web:SydneyWelcomeScreen':'/rp/sNzL8vfHHNmyqYOSQey9fNYd3kI.br.js' },
 {'A:rms:answers:GlobalsScript:RefreshPageLongInactive':'https://r.bing.com/rp/eeSRHmOwBCiYGkxCHmb9VbJ2hT8.br.js'},
 {'A:rms:answers:Shared:BingCore.Bundle':'https://r.bing.com/rp/-EZ3_E7ynAvG4WDjTxZ9rUpEwcA.br.js'},
 {'A:rms:answers:VisualSystem:QuickSearch':'https://r.bing.com/rp/U6ozRLRanAQTt22qZDWCWxYnh5g.br.js'},
