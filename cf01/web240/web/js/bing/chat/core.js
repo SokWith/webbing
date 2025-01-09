@@ -25,6 +25,7 @@
 
 _w.rms.js(
 //{'A:0':0},
+{ 'A:rms:answers:Web:SydneyWelcomeScreen':'/rp/sNzL8vfHHNmyqYOSQey9fNYd3kI.br.js' },
 {'A:rms:answers:GlobalsScript:RefreshPageLongInactive':'https://r.bing.com/rp/eeSRHmOwBCiYGkxCHmb9VbJ2hT8.br.js'},
 {'A:rms:answers:Shared:BingCore.Bundle':'https://r.bing.com/rp/-EZ3_E7ynAvG4WDjTxZ9rUpEwcA.br.js'},
 {'A:rms:answers:VisualSystem:QuickSearch':'https://r.bing.com/rp/U6ozRLRanAQTt22qZDWCWxYnh5g.br.js'},
@@ -76,7 +77,7 @@ _w.rms.js(
 {'A:rms:answers:SharedStaticAssets:azure_msal_browser':'https://r.bing.com/rp/9uYIRoQB-ThMq970XKGeKvrMhL0.br.js'},
 {'A:rms:answers:SharedStaticAssets:microsoft-graph-client':'https://r.bing.com/rp/bdiAPlmUnJhdap3y8myDMEGlF4w.br.js'},
 //{'A:9':9},
-//{'A:rms:answers:Web:FreeSydneyHelper':'https://r.bing.com/rp/N0wERQqY_QwLTAsANmATXtL5fZE.br.js'},
+{'A:rms:answers:Web:FreeSydneyHelper':'https://r.bing.com/rp/N0wERQqY_QwLTAsANmATXtL5fZE.br.js'},
 //{'A:rms:answers:Web:SydneyFSCHelper':'https://r.bing.com/rp/p8iFKqjtfmUOj6mXSomSpfpbevc.br.js'},
 {'A:rms:answers:Shared:BingCore.AppendHTMLAfterOnLoad':'https://r.bing.com/rp/2LhASpM_B45Dkt22jdRkKWDJqnA.br.js'},
 {'A:rms:answers:Web:SydneyExternalSerpResources':'https://r.bing.com/rp/2RCeK0DXIqmSD7PaRpZ6xLy-dAQ.br.js'},
